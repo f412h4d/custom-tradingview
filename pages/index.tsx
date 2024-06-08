@@ -6,7 +6,7 @@ import Script from "next/script";
 import {
   ChartingLibraryWidgetOptions,
   ResolutionString,
-} from "@/public/static/charting_library/charting_library";
+} from "@/public/static/charting_library/charting_library.min";
 
 const defaultWidgetProps: Partial<ChartingLibraryWidgetOptions> = {
   symbol: "AAPL",

@@ -1,13 +1,13 @@
 import styles from "./index.module.css";
 import { useEffect, useRef } from "react";
-import { ChartingLibraryWidgetOptions, LanguageCode, ResolutionString, widget } from "@/public/static/charting_library";
+import { ChartingLibraryWidgetOptions, LanguageCode, ResolutionString, widget } from "@/public/static/charting_library/charting_library.min";
 
 export const TVChartContainer = (props: Partial<ChartingLibraryWidgetOptions>) => {
 	const chartContainerRef =
 		useRef<HTMLDivElement>() as React.MutableRefObject<HTMLInputElement>;
 
 	useEffect(() => {
-		const widgetOptions: ChartingLibraryWidgetOptions = {
+		const widgetOptions: any = {
 			symbol: props.symbol,
 			// BEWARE: no trailing slash is expected in feed URL
 			datafeed: new (window as any).Datafeeds.UDFCompatibleDatafeed(
@@ -35,7 +35,7 @@ export const TVChartContainer = (props: Partial<ChartingLibraryWidgetOptions>) =
 			// debug: true,
 		};
 
-		const tvWidget = new widget(widgetOptions);
+		const tvWidget = new widget(widgetOptions) as any;
 
 		tvWidget.onChartReady(() => {
 			tvWidget.headerReady().then(() => {;
